@@ -9,7 +9,7 @@ public class FacebookLoginController {
 	
 	//starting page for Facebook login demo
 	@RequestMapping("/facebookLogin")
-	public String twiterLogin(Model model) {
+	public String facebookLogin(Model model) {
 		return "facebookLogin";
 	}
 
