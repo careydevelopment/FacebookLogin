@@ -1,6 +1,8 @@
 # FacebookLogin
 This project contains a Spring Boot demo that enables a user to login with Facebook
 
+Be sure to add your own app ID and secret to the GetTokenController class!
+
 Just pull this project down in Eclipse, then build it. Once it's built, you can run it from the command line with:
 java -jar facebooklogin.jar
 
