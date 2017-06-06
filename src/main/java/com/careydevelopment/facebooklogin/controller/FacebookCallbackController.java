@@ -15,22 +15,22 @@ import facebook4j.Facebook;
 @Controller
 public class FacebookCallbackController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(FacebookCallbackController.class); 
-	
-	//This is where we land when we get back from Facebook
+    private static final Logger LOGGER = LoggerFactory.getLogger(FacebookCallbackController.class); 
+    
+    //This is where we land when we get back from Facebook
     @RequestMapping("/facebookCallback")
     public String facebookCallback(@RequestParam(value="code", required=true) String oauthCode,
-    	HttpServletRequest request, HttpServletResponse response, Model model) {
-
-    	//get the objects from the session
-    	Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
-        
+        HttpServletRequest request, HttpServletResponse response, Model model) {
+    
+        //get the objects from the session
+        Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+    
         try {
-        	facebook.getOAuthAccessToken(oauthCode);
-        	
+            facebook.getOAuthAccessToken(oauthCode);
+    	
             //store the user name so we can display it on the web page
             model.addAttribute("username", facebook.getName());
-            
+        
             return "facebookLoggedIn";
         } catch (Exception e) {
             LOGGER.error("Problem getting token!",e);
